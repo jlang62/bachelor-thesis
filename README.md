@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository contains the code, data, and documentation for a bachelor thesis on **"How advanced text document classification techniques, incorporating machine learning and natural language processing, can be effectively employed to improve the accuracy and efficiency of categorizing diverse textual documents."**
+This repository contains the code, data, and documentation for a bachelor thesis on **"How can advanced text document classification techniques, incorporating machine learning and natural language processing, be effectively employed to improve the accuracy and efficiency of categorizing diverse textual documents, and what factors influence the performance of such classification models in real-world applications?"**
 
 ## Table of Contents
 
