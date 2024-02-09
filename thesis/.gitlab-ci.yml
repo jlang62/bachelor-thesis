@@ -1,0 +1,11 @@
+image: demetzlukas/latex-german:latest
+
+build:
+  script:
+    - sh make-latex.sh
+  artifacts:
+    paths:
+      - "*.pdf"
+  tags:
+    - docker
+    
