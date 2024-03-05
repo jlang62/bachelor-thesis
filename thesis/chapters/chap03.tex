@@ -1,3 +1,23 @@
-\chapter{Study Design}
+\chapter{Methodology}
 
-\Blindtext[4][1]
+The methods used to address the research topics raised in this thesis are described in this chapter. To obtain the results that will be presented, this chapter aims to give a thorough description of the data collection and preprocessing, feature extraction, and model selection. To ensure reproducibility and provide the reader with a fair basis for evaluating the employment of models on text categorization tasks, this section should detail the techniques.
+
+\section{Data Collection and Preprocessing}
+
+The collection of data is a crucial step that lays the foundation for later analyses and model development. It involves gathering textual data from various sources, which could include websites, databases, or specialized datasets for the specific domain of interest. It is important to collect a sufficiently diverse amount of data to capture the variability present in real-world text data (OpenAI, 2024). This thesis uses a BBC news dataset containing 2225 text data and five categories of documents (Text Document Classification Dataset, 2024). 
+
+\section{Text preprocessing}
+
+Preprocessing methods are an essential step for text mining techniques and applications. The data and its columns need to be analyzed and inspected since it is often necessary to generate a new column combining the various features. Through the joint column, a better, more comprehensive, and more accurate analysis can take place. The three essential preprocessing steps — extraction, stop word removal, stemming, and TF/IDF algorithms — are covered in this study (Figure 1).
+
+\subsection{Extraction / Tokenization}
+
+Tokenization is the process of splitting sentences into individual words, characters, and punctuation, which are referred to as tokens. The split function uses white spaces or punctuations as dividing criteria. These generated tokens are often stored in a list afterward. In later processing phases, this step aids in removing unnecessary terms (Tabassum \& Patil, 2020). 
+
+For example:
+
+“This is an example sentence for the showcase of tokenization!”
+
+Will be split into:
+
+“This”, “is”, “an”, “example”, “sentence”, “for”, “the”, “showcase”, “of”, “tokenization”, “!”
