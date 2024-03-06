@@ -2,13 +2,13 @@
 
 The methods used to address the research topics raised in this thesis are described in this chapter. To obtain the results that will be presented, this chapter aims to give a thorough description of the data collection and preprocessing, feature extraction, and model selection. To ensure reproducibility and provide the reader with a fair basis for evaluating the employment of models on text categorization tasks, this section should detail the techniques.
 
-\section{Data Collection and Preprocessing}
+\section{Data Collection}
 
 The collection of data is a crucial step that lays the foundation for later analyses and model development. It involves gathering textual data from various sources, which could include websites, databases, or specialized datasets for the specific domain of interest. It is important to collect a sufficiently diverse amount of data to capture the variability present in real-world text data (OpenAI, 2024). This thesis uses a BBC news dataset containing 2225 text data and five categories of documents (Text Document Classification Dataset, 2024). 
 
 \section{Text preprocessing}
 
-Preprocessing methods are an essential step for text mining techniques and applications. The data and its columns need to be analyzed and inspected since it is often necessary to generate a new column combining the various features. Through the joint column, a better, more comprehensive, and more accurate analysis can take place. The three essential preprocessing steps — extraction, stop word removal, stemming, and TF/IDF algorithms — are covered in this study (Figure 1).
+Preprocessing methods are an essential step for text mining techniques and applications. The data and its columns need to be analyzed and inspected since it is often necessary to generate a new column combining the various features. Through the joint column, a better, more comprehensive, and more accurate analysis can take place. The three essential preprocessing steps — extraction, lowercase conversion, and StopWords removal — are covered in this study (Figure 1).
 
 \subsection{Extraction / Tokenization}
 
@@ -21,3 +21,18 @@ For example:
 Will be split into:
 
 “This”, “is”, “an”, “example”, “sentence”, “for”, “the”, “showcase”, “of”, “tokenization”, “!”
+
+\subsection{Lowercase Conversion}
+
+Text typically consists of capital letters and abbreviations. Although this stage of text preprocessing is frequently skipped, it is one of the easiest and most successful ones. NLP is case-sensitive, meaning, it interprets 'Hello' differently than 'hello' and leads to a different outcome. In the later phases of word embedding would it create two distinct vectors, for the same words with one in capital and one in lowercase. For this reason, the best practice in text pre-processing has been to make all words lowercase (Tabassum \& Patil, 2020).
+
+\subsection{StopWords Removal}
+
+Simple words like "the", "are", "is", "and" and so forth have no significance except in certain particular use cases. For instance, these extra words are not given any weightage in the text classification use case. The keywords that define the topics are the only ones that are extracted. Therefore, to reach the best result of algorithms these StopWords have to be found and removed from their document. It is also important to remember that in some scenarios, such as conversational models, the inclusion of specific negation words, like “No”, “cannot”, “wont” and “not”, is crucial (Tabassum \& Patil, 2020). Libraries like nltk and sklearn already offer predefined lists of StopWords which can be easily downloaded and implemented into the code.
+
+\section{Feature Extraction}
+
+The encoding of features in vector forms for machine comprehension is often referred to as feature extraction. After being extracted by these methods, every feature is finally represented as a vector, which is then sent to the classifier models. The most common techniques, such as Bag-of-Words (BoW), and TF-IDF will be discussed next.
+
+\subsection{Bag-of-Words (BoW)}
+
