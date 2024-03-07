@@ -36,3 +36,41 @@ The encoding of features in vector forms for machine comprehension is often refe
 
 \subsection{Bag-of-Words (BoW)}
 
+A bag of words in terms of natural language processing is a collection of words based on the number of occurrences in a given text or document. It only counts the frequency of a word, regardless of its position in the text. Thus, the BoW interprets that documents or texts containing similar words share the same context. One flaw of the model is that it prioritizes words that appear more frequently, making them more significant. On the other hand, some words may occur more frequently than others but lack sufficient information to help in clustering or classification issues. Additionally, longer documents provide a greater rate than shorter ones, which reduces the accuracy of the BoW model (Tabassum \& Patil, 2020).
+
+\begin{verbatim}
+Document 0: "The quick brown fox"
+Document 1: "Jumped over the lazy dog"
+Document 2: "The dog chased the fox"
+
+Vocabulary: 
+{'the': 8, 'quick': 7, 'brown': 0, 'fox': 3, 'jumped': 4,
+'over': 6, 'lazy': 5, 'dog': 2, 'chased': 1}
+
+BoW:
+    brown  chased  dog  fox  jumped  lazy  over  quick  the
+0      1      0     0    1      0     0     0      1     1
+1      0      0     1    0      1     1     1      0     1
+2      0      1     1    1      0     0     0      0     2
+\end{verbatim}
+
+
+\subsection{Term Frequency-Inverse Document Frequency (TF-IDF)}
+
+A numerical measure called Term Frequency-Inverse Document Frequency (tf-idf) shows how significant a word is to a document within a collection. It is mostly used as a common weighting factor in text mining and information retrieval. The value of tf-idf rises in direct proportion to the frequency of a word in the corpus, but this is offset by the term's frequency in the document. This can help in managing the fact that certain words are typically used more commonly than others. Stop-word filtering using Tf-IDF is effective in a variety of subject areas, such as text classification and summarization. The model is the product of the two aforementioned statistics, termed frequency and inverse document frequency. The number of occurrences with which each term appears in each document is counted and added together to further differentiate them (Vijayarani et al., 2015). By calculating the log of the ratio of all documents to all instances of a word in a given document, it essentially scales down the less important words (Tabassum \& Patil, 2020).
+
+\begin{verbatim}
+Document 0: "The quick brown fox"
+Document 1: "Jumped over the lazy dog"
+Document 2: "The dog chased the fox"
+
+Vocabulary: 
+{'the': 8, 'quick': 7, 'brown': 0, 'fox': 3, 'jumped': 4,
+'over': 6, 'lazy': 5, 'dog': 2, 'chased': 1}
+
+  brown  chased  dog  fox   jumped  lazy   over  quick   the 
+0  0.58   0.00  0.00  0.44   0.00   0.00   0.00   0.58   0.35  
+1  0.00   0.00  0.38  0.00   0.50   0.50   0.50   0.00   0.30  
+2  0.00   0.53  0.40  0.40   0.00   0.00   0.00   0.00   0.63   
+
+\end{verbatim}
