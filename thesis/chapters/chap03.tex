@@ -1,16 +1,18 @@
 \chapter{Methodology}
 
-The methods used to address the research topics raised in this thesis are described in this chapter. To obtain the results that will be presented, this chapter aims to give a thorough description of the data collection and preprocessing, feature extraction, and model selection. To ensure reproducibility and provide the reader with a fair basis for evaluating the employment of models on text categorization tasks, this section should detail the techniques.
+The methods used to address the research topics raised in this thesis are described in this chapter. To obtain the results that will be presented, this section provides a thorough overview of the pipeline (Figure~\ref{fig:pipeline}), outlining the procedures for preprocessing data, extracting features, model selection and training, and assessing performance. Through the conversion of theoretical ideas into practical procedures, aiming to offer an outline of how these methods are applied in real-life situations.
+
+\fig{img/pipeline}{Implementation pipeline}{fig:pipeline}{0.65}
 
 \section{Data Collection}
 
 The collection of data is a crucial step that lays the foundation for later analyses and model development. It involves gathering textual data from various sources, which could include websites, databases, or specialized datasets for the specific domain of interest. It is important to collect a sufficiently diverse amount of data to capture the variability present in real-world text data (OpenAI, 2024). This thesis uses a BBC news dataset containing 2225 text data and five categories of documents (Text Document Classification Dataset, 2024). 
 
-\section{Text preprocessing}
+\section{Data and Text preprocessing}
 
-Preprocessing methods are an essential step for text mining techniques and applications. The data and its columns need to be analyzed and inspected since it is often necessary to generate a new column combining the various features. Through the joint column, a better, more comprehensive, and more accurate analysis can take place. The three essential preprocessing steps — extraction, lowercase conversion, and StopWords removal — are covered in this study (Figure 1).
+Preprocessing methods are an essential step for text mining techniques and applications. The data and its columns need to be analyzed and inspected since it is often necessary to generate a new column combining the various features. Through the joint column, a better, more comprehensive, and more accurate analysis can take place. The three essential preprocessing steps — extraction, lowercase conversion, and StopWords removal — are covered in this study.
 
-\subsection{Extraction / Tokenization}
+\subsection{Tokenization}
 
 Tokenization is the process of splitting sentences into individual words, characters, and punctuation, which are referred to as tokens. The split function uses white spaces or punctuations as dividing criteria. These generated tokens are often stored in a list afterward. In later processing phases, this step aids in removing unnecessary terms (Tabassum \& Patil, 2020). 
 
@@ -75,7 +77,12 @@ TF-IDF:
 2  0.00   0.53  0.40  0.40   0.00   0.00   0.00   0.00   0.63   
 \end{verbatim}
 
-\section{Machine Learning}
+\section{Train-Test-Split}
+
+xx
+
+
+\section{Model Selection}
 
 Machine Learning is split into three main categories, which are supervised, unsupervised and reinforcement learning. This thesis only required supervised learning, which is about the prediction of values with regression models, as well as classifying data with predefined labels. On the other hand, there is unsupervised learning which contains the analysis of patterns and can form clusters out of unlabelled data.
 
@@ -83,7 +90,7 @@ Machine Learning is split into three main categories, which are supervised, unsu
 
 There are several different classification models and each of them fits a specific use case best. 
 The models need to be evaluated and compared to one and another, to find the optimal algorithm. This study analyses seven different models from sklearn (Logistic Regression, Decision Tree, Naive Bayes, Support Vector Machine, Random Forest, XGBoost, KNeighborsClassifier) and evaluates them based on the run time and accuracy. 
-Two functions, one to find the best random state on the train-test-split data, and the other to get the ideal hyperparameters based on a grid search, loop through the previous defined models and automate the process, when finalised it returns the best score and run time duration.
+% Two functions, one to find the best random state on the train-test-split data, and the other to get the ideal hyperparameters based on a grid search, loop through the previous defined models and automate the process, when finalised it returns the best score and run time duration.
 
 \subsubsection{K-nearest neighbour - KNN}
 The K-nearest neighbour algorithm is one of the finest examples of instance-based learning. Additionally, it is easy to understand and a simple method for classification problems. Despite its simplicity, it has the capability to yield results that are highly competitive. Not only is it well suitable for classifications but it also fits the requirements for regression predictions (Sen et al., 2020).
@@ -103,3 +110,4 @@ A significant performance boost can be seen, when the variable "n" exceeds the t
 Deep learning (DL) is a specific category within machine learning (ML) methodologies that utilizes artificial neural networks (ANN). These networks are loosely inspired by the structure of neurons found in the human brain. Informally, the term "deep" originally referred to the presence of numerous layers in the artificial neural network. However, this definition has evolved over time. While just four years ago, having 10 layers was considered sufficient to qualify a network as deep, today it is more commonplace to characterize a network as deep when it comprises hundreds of layers (Gulli \& Pal, 2017). 
 
 Keras serves as a user-friendly high-level deep learning library in Python, providing a convenient interface for building neural networks. The Sequential model in Keras is a linear stack of layers, allowing the straightforward construction of neural networks by sequentially adding layers. Each layer, often employing activation functions like Rectified Linear Unit (ReLU), introduces non-linearity to the model, enabling it to capture complex patterns and relationships within the data (Gulli \& Pal, 2017). 
+
