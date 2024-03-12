@@ -79,7 +79,17 @@ TF-IDF:
 
 \section{Train-Test-Split}
 
-xx
+Train-Test-Split is a common method provided by sklearn, used to divide a given dataset into smaller subsets. The datasets need to be divided into training and testing sets in order to fairly assess the models. By dividing the data, the model's performance on unknown data may be evaluated, revealing whether the model overfits or performs well in terms of generalization. This stage is crucial because the model's ultimate objective is to accurately predict new data.
+
+Every dataset was split only once, and all models were trained and fine-tuned using the same split, to maintain the comparison as fair and repeatable as possible. Listing~\ref{lst:train-test-split} displays the implementation, which divides the data into a split of 80:20, where the training set contains 80\%, and the testing set 20\%. 
+
+The variable X (features) is assigned to the previously created TF-IDF vector and y (target) to the labels that should be predicted. The random\_state parameter controls the randomness of the data splitting process. When a specific random\_state value is provided, the data splitting process will produce the same result every time it is executed, ensuring reproducibility. If random\_state is not specified, the data splitting will be different each time the function is called.
+
+\begin{lstlisting}[language=Python, caption=Train-Test-Split in Python, label=lst:train-test-split]
+from sklearn.model_selection import train_test_split
+
+X_train,X_test,y_train,y_test = train_test_split(X,y, test_size=0.2, random_state=42)
+\end{lstlisting}
 
 
 \section{Model Selection}
