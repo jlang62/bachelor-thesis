@@ -83,14 +83,15 @@ Train-Test-Split is a common method provided by sklearn, used to divide a given 
 
 Every dataset was split only once, and all models were trained and fine-tuned using the same split, to maintain the comparison as fair and repeatable as possible. Listing~\ref{lst:train-test-split} displays the implementation, which divides the data into a split of 80:20, where the training set contains 80\%, and the testing set 20\%. 
 
-The variable X (features) is assigned to the previously created TF-IDF vector and y (target) to the labels that should be predicted. The random\_state parameter controls the randomness of the data splitting process. When a specific random\_state value is provided, the data splitting process will produce the same result every time it is executed, ensuring reproducibility. If random\_state is not specified, the data splitting will be different each time the function is called.
-
 \begin{lstlisting}[language=Python, caption=Train-Test-Split in Python, label=lst:train-test-split]
 from sklearn.model_selection import train_test_split
 
 X_train,X_test,y_train,y_test = train_test_split(X,y, test_size=0.2, random_state=42)
 \end{lstlisting}
 
+The variable X (features) is assigned to the previously created TF-IDF vector and y (target) to the labels that should be predicted. 
+
+The random\_state parameter controls the randomness of the data splitting process. When a specific random\_state value is provided, the data splitting process will produce the same result every time it is executed, ensuring reproducibility. If random\_state is not specified, the data splitting will be different each time the function is called.
 
 \section{Model Selection}
 
@@ -115,6 +116,15 @@ Another supervised algorithm is the support vector machine. It can handle both, 
 The algorithm can be defined like following. Items of the dataset with "n" features will be characterised and plotted as points in an n-dimensional space split into classes by a hyperplane with the widest possible margin. The data points are then mapped into the previous defined space to predict their label based on their position relative to the hyperplane (Sen et al., 2020).
 
 A significant performance boost can be seen, when the variable "n" exceeds the total size of sample set. Therefore, is this algorithm mostly taken under consideration for high-dimensional data. Further improvements in performance can be achieved by having a well-constructed hyperplane. Despite its advantages, is a relatively high training time one of its drawbacks. Which leads to slower predictions, especially with large datasets (Sen et al., 2020).
+
+\subsubsection{Decision Tree - DT}
+
+One of the non-parametric supervised learning techniques for regression and classification is called a decision tree (DT). The objective is to build a model that, by utilizing basic decision rules deduced from the data features, predicts the value of a target variable. A piecewise constant approximation can be thought of as a tree. Decision trees, for example, use a collection of if-then-else decision rules to estimate a sine curve based on inputs. The decision criteria become more complex and the model becomes better fitted as the tree gets deeper (Decision Trees, 2024).
+
+The ease of use and interpretability of decision trees is one of its main benefits. It is possible to visualise and comprehend the tree structure, so even non-experts may use it. Furthermore, because decision trees can handle both numerical and categorical data without requiring a lot of preprocessing, they also require less preparation of the data. They also have the benefit of handling multi-output issues and offering a white box approach, in which a decision's logic may be simply described using boolean logic (Decision Trees, 2024).
+
+Nevertheless, decision trees can overfit, especially if they get too complicated. To avoid this problem, measures like trimming and imposing tree growth restrictions are required. Decision trees can also be unstable since slight changes in the data might produce noticeably different tree architectures. Despite these drawbacks, is it a useful tool in machine learning, even with these limitations, especially where simplicity and interpretability are top priorities (Decision Trees, 2024).
+
 
 \subsection{Deep Learning}
 Deep learning (DL) is a specific category within machine learning (ML) methodologies that utilizes artificial neural networks (ANN). These networks are loosely inspired by the structure of neurons found in the human brain. Informally, the term "deep" originally referred to the presence of numerous layers in the artificial neural network. However, this definition has evolved over time. While just four years ago, having 10 layers was considered sufficient to qualify a network as deep, today it is more commonplace to characterize a network as deep when it comprises hundreds of layers (Gulli \& Pal, 2017). 
