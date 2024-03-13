@@ -3,5 +3,26 @@
 The results presented in this chapter are the outcomes obtained by applying pre-processing techniques and machine learning models to the dataset for multi-class classification. Chapter 6 goes into further depth about the findings. Each of the model’s runtimes, performance metrics (accuracy), and findings of the data pre-processing steps are included in the results. 
 
 \section{Data Pre-processing}
+\subsection{Label Distribution}
 
-xx
+\fig{img/distributon_labels}{Distributon of the labels}{fig:dist-labels}{0.65}
+
+Figure~\ref{fig:dist-labels} shows the distribution of the labels in the BBC dataset. The labels represent the categories 0: politics, 1: sport, 2: technology, 3: entertainment, 4: business. The distribution is measured in the total amount of documents per label.
+
+As can be seen in Figure~\ref{fig:dist-labels}, there is an unequal distribution of the categories, where the sports and business sections carry the most weight. Whereas the other three labels have around 20\% less data available.
+
+\subsection{Token length distribution}
+
+\fig{img/token_length}{Distributon of the token length}{fig:dist-token-length}{0.65}
+
+Figure~\ref{fig:dist-token-length} illustrates the distribution of token lengths per label within the dataset using box plots with outliers. Each box plot represents the distribution of token lengths, with the box indicating the interquartile range and the median, while the outer ends extend to the minimum and maximum values.
+
+This visualization provides a comprehensive view of the variability in token lengths present in the textual data. By examining the box plots, we can discern the typical range of token lengths as well as the presence of outliers or extreme values.
+
+\subsection{Label insights}
+
+\fig{img/topwords}{Top 10 words of the politics and technology category}{fig:top-words}{1}
+
+Figure~\ref{fig:top-words} presents the top 10 words for each of the two labels, "politics" and "technology." This visualization offers a concise representation of the most frequent words associated with each category, providing a quick overview of the predominant themes within the dataset. By presenting the most commonly occurring words, this figure aids in understanding the lexical characteristics of the politics and technology categories, serving as a useful reference for subsequent analysis and interpretation of the textual data.
+
+\section{Model Performance}
