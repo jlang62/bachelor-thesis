@@ -1,3 +1,18 @@
-\chapter{Conclusion}
+\chapter{Discussion}
 
-\Blindtext[4][1]
+In addition to interpreting the machine learning experiment findings, the discussion chapter will compare the outcomes of the various techniques by looking at the evaluation metrics and exchanging opinions regarding the models, data, and decisions made in this thesis. General questions about NLP and the potential applications of text document classification will also examined.
+
+\section{Analysis of the Results}
+
+\subsection{Model Performance}
+
+Figure~\ref{fig:perf-acc} and Figure~\ref{fig:perf-runtime} showcase the performances of the machine learning models with two different feature extraction approaches.
+
+When employing the TF-IDF approach, several models demonstrated strong performance. Logistic Regression achieved one of the highest accuracy among all models, with an impressive 96.86\%. Its relatively low duration indicates efficient training and inference times, making it suitable for real-time applications. Random Forest also exhibited competitive performance with an accuracy of 96.26\% and a shorter duration compared to Logistic Regression, suggesting its efficiency in classification tasks. However, the Support Vector Machine (SVM) model outperformed others in accuracy, achieving 97.16\%. Nonetheless, its longer duration implies higher computational complexity, which may limit its scalability for large datasets or real-time applications. Despite its simplicity, K-Nearest Neighbors (KNN) achieved a respectable accuracy of 91.92\% with the shortest duration among all models, indicating its efficiency for tasks with computational constraints. XGBoost, although offering high accuracy (95.06\%), required the longest duration, highlighting a trade-off between accuracy and computational cost. Naive Bayes demonstrated efficient performance with a balanced accuracy (91.32\%) and a short duration, making it a viable choice for resource-constrained environments. Conversely, the Decision Tree model exhibited the lowest accuracy (80.84\%) with moderate duration, suggesting limited performance compared to other models.
+
+Transitioning to the Bag-of-Words (BoW) approach, models maintained competitive accuracy levels, though with slight variations in performance. Logistic Regression and Random Forest retained strong performance, achieving accuracies of 96.26\% and 94.61\%, respectively, comparable to their TF-IDF counterparts. However, the computational overhead increased slightly, indicating a trade-off between accuracy and computational efficiency with BoW representation. SVM demonstrated a similar trend, achieving an accuracy of 94.01\% with reduced computational complexity compared to TF-IDF. KNN experienced a significant decrease in accuracy (58.53\%) with BoW representation, suggesting its limitations in handling sparse feature spaces. XGBoost continued to perform well with BoW, achieving an accuracy of 95.81\%, albeit with reduced computational time compared to TF-IDF. Naive Bayes and Decision Tree models maintained consistent performance with BoW, offering high accuracy levels (92.22\% and 81.59\%, respectively) and efficient computational times.
+
+In summary, the choice of feature representation and model selection depends on the specific requirements of the text classification task. TF-IDF provides discriminative features that may enhance model performance, while BoW offers computational efficiency, particularly for resource-constrained environments. Logistic Regression and Random Forest models present a favorable balance between accuracy and computational cost, making them suitable choices for various applications. Future research directions may involve exploring ensemble methods or deep learning approaches to further enhance classification accuracy while maintaining computational efficiency. Additionally, hyperparameter tuning and feature engineering techniques could provide insights into improving model performance, particularly for Decision Trees and KNN with BoW representation.
+
+\subsection{Data Pre-processing}
+

@@ -35,7 +35,7 @@ By analyzing key metrics like accuracy and runtime, it provides important insigh
 
 \subsection{Accuracy}
 
-\fig{img/accuracy}{Accuracy of the models}{fig:perf-acc}{0.7}
+\fig{img/accuracy}{Comparison of model accuracy with TFIDF and BOW}{fig:perf-acc}{1}
 
 Figure~\ref{fig:perf-acc} displays the evaluation of different classification models. In this visualization, each model's accuracy score is shown, providing a clear comparison of their performance in classifying textual documents across different categories or classes. Logistic Regression and Support Vector Machine provided the most precise score with 0.97 accuracy, followed by Random Forest (0.96) and K-Nearest-Neighbour (0.92). Whereas the Decision Tree model came out as the least accurate model (0.81).
 
@@ -45,12 +45,8 @@ This information is crucial for determining the effectiveness and reliability of
 
 \subsection{Runtime}
 
-\fig{img/runtime}{Runtime of the models}{fig:perf-runtime}{0.7}
+\fig{img/runtime}{Comparison of model runtime with TFIDF and BOW}{fig:perf-runtime}{1}
 
 Figure~\ref{fig:perf-runtime} displays the runtime of the classification models utilized in this study. Runtime refers to the time taken by each model to complete the classification task, from training to prediction, on the given dataset. The faster the model’s runtime is the more efficient it will be in production. Therefore is KNN (4.93 s) the quickest, Naïve Bayes (5.78 s) second, and Decision Tree (8.76 s) third. At the bottom of the ranking are the following models, SVM (98.27 s) and XGBoost (139.82 s).
 
 This information is important for assessing the practical probability and scalability of the classification algorithms, particularly in real-world applications where computational efficiency is a significant consideration.
-
-\section{Application}
-
-\subsection{Cosine Similarity}
