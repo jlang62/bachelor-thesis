@@ -16,3 +16,9 @@ In summary, the choice of feature representation and model selection depends on 
 
 \subsection{Data Pre-processing}
 
+Figure~\ref{fig:dist-labels} and Figure~\ref{fig:dist-token-length} demonstrate two important distributions within the dataset. An uneven amount of labels (Figure~\ref{fig:dist-labels}) can disrupt the performance and accuracy of the model. In this example, there would be more weightage on the labels 1 and 4. While splitting the data into training and testing parts, is the “stratify” parameter used to balance the two sets for an even distribution and leads to more accurate results. Figure~\ref{fig:dist-token-length} indicates that there are documents with various amounts of length. Longer documents will help the model gain more insight into the category, whereas shorter documents with only a few tokens lead to confusion since they will probably not contain any significant words about the topic.
+
+While exploring the feature representations (either in BoW or TF-IDF format) is it helpful to use topic modelling (Figure~\ref{fig:top-words}) for a deeper comprehension of the different categories. Due to this, can major topics already be identified and annotated. On the left side in Figure~\ref{fig:top-words} is the topic visualization of the label “politics”. Most appeared words are mr, labour, election, party, government, minister, which are words defining politics. The right sight illustrates the label “technology”, seen by the tokens such as mobile, technolog, software, digital. After this analysis is the data more clear and easier to understand. Annotating the data for classification tasks is a crucial step when working with a dataset with no predefined labels.
+
+\section{Conclusion}
+
