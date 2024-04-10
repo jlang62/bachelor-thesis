@@ -1,8 +1,8 @@
 \chapter{Results}
 
-The results presented in this chapter are the outcomes obtained by applying pre-processing techniques and machine learning models to the dataset for multi-class classification. Chapter 5 goes into further depth about the findings. Each of the model’s runtimes, performance metrics (accuracy), and findings of the data pre-processing steps are included in the results. 
+The results presented in this chapter are the outcomes obtained by applying pre-processing techniques and machine learning models to the dataset for multi-class classification. Chapter 5 goes into further depth about the findings. Each of the model’s runtimes, performance metrics (accuracy), and findings of the data preprocessing steps are included in the results. 
 
-\section{Data Pre-processing}
+\section{Data Preprocessing}
 \subsection{Label Distribution}
 
 \fig{img/distributon_labels}{Distributon of the labels}{fig:dist-labels}{0.65}
@@ -11,13 +11,13 @@ Figure~\ref{fig:dist-labels} shows the distribution of the labels in the BBC dat
 
 As can be seen in Figure~\ref{fig:dist-labels}, there is an unequal distribution of the categories, where the sports and business sections carry the most weight. Whereas the other three labels have around 20\% less data available.
 
-\subsection{Token length distribution}
+\subsection{Document length distribution}
 
-\fig{img/token_length}{Distributon of the token length}{fig:dist-token-length}{0.65}
+\fig{img/token_length}{Distributon of the document length}{fig:dist-token-length}{0.65}
 
-Figure~\ref{fig:dist-token-length} illustrates the distribution of token lengths per label within the dataset using box plots with outliers. Each box plot represents the distribution of token lengths, with the box indicating the interquartile range and the median, while the outer ends extend to the minimum and maximum values.
+Figure~\ref{fig:dist-token-length} illustrates the distribution of document lengths per label within the dataset using box plots with outliers. Each box plot represents the distribution of document lengths, with the box indicating the interquartile range and the median, while the outer ends extend to the minimum and maximum values.
 
-This visualization provides a comprehensive view of the variability in token lengths present in the textual data. By examining the box plots, we can discern the typical range of token lengths as well as the presence of outliers or extreme values.
+This visualization provides a comprehensive view of the variability in document lengths present in the textual data. By examining the box plots, we can discern the typical range of token lengths as well as the presence of outliers or extreme values.
 
 \subsection{Label insights}
 
@@ -35,7 +35,7 @@ By analyzing key metrics like accuracy and runtime, it provides important insigh
 
 \subsection{Accuracy}
 
-\fig{img/accuracy}{Comparison of model accuracy with TF-IDF and BOW}{fig:perf-acc}{1}
+\fig{img/accuracy}{Comparison of model accuracy with TF-IDF and BoW}{fig:perf-acc}{1}
 
 Figure~\ref{fig:perf-acc} displays the evaluation of different classification models with two approaches, TF-IDF and BoW. In this visualization, each model's accuracy score is shown, providing a clear comparison of their performance in classifying textual documents across different categories or classes. Looking at the TF-IDF approach, Logistic Regression and Support Vector Machine provided the most precise score with 0.97 accuracy, followed by Random Forest (0.96) and K-Nearest-Neighbour (0.92). In contrast, the Decision Tree model came out as the least accurate model (0.81).
 
@@ -45,8 +45,8 @@ This information is crucial for determining the effectiveness and reliability of
 
 \subsection{Runtime}
 
-\fig{img/runtime}{Comparison of model runtime with TF-IDF and BOW}{fig:perf-runtime}{1}
+\fig{img/runtime}{Comparison of model runtime with TF-IDF and BoW}{fig:perf-runtime}{1}
 
-Figure~\ref{fig:perf-runtime} displays the runtime of the classification models (TF-IDF and BoW approach) utilized in this study. Runtime refers to the time taken by each model to complete the classification task, from training to prediction, on the given dataset. The faster the model’s runtime is the more efficient it will be in production. Therefore is KNN (3.22 s) the quickest, Naïve Bayes (4.73 s) second, and Decision Tree (7.1 s) third. At the bottom of the ranking are the following models, SVM (96.66 s) and XGBoost (138.74 s).
+Figure~\ref{fig:perf-runtime} displays the runtime of the classification models (TF-IDF and BoW approach) utilized in this study. Runtime refers to the time taken by each model to complete the classification task, from training to prediction, on the given dataset. The faster the model’s runtime is the more efficient it will be in production. Therefore, considering the TF-IDF approach, is KNN (3.22 s) the quickest, Naïve Bayes (4.73 s) second, and Decision Tree (7.1 s) third. At the bottom of the ranking are the following models, SVM (96.66 s) and XGBoost (138.74 s).
 
 This information is important for assessing the practical probability and scalability of the classification algorithms, particularly in real-world applications where computational efficiency is a significant consideration.

@@ -6,11 +6,12 @@ The methods used to address the research topics raised in this thesis are descri
 
 \section{Data Collection}
 
-The collection of data is a crucial step that lays the foundation for later analyses and model development. It involves gathering textual data from various sources, which could include websites, databases, or specialized datasets for the specific domain of interest. It is important to collect a sufficiently diverse amount of data to capture the variability present in real-world text data \citep{openai_gpt3}. This thesis uses a BBC news dataset containing 2225 text data and five categories of documents \citep{text_dataset}. 
+The collection of data is a crucial step that lays the foundation for later analysis and model development. It involves gathering textual data from various sources, which could include websites, databases, or specialized datasets for the specific domain of interest. It is important to collect a sufficiently diverse amount of data to capture the variability present in real-world text data \citep{openai_gpt3}. This thesis uses a BBC news dataset containing 2225 text data and five categories of documents \citep{text_dataset}. 
 
 \section{Data and Text preprocessing}
 
-Preprocessing methods are an essential step for text mining techniques and applications. The data and its columns need to be analyzed and inspected since it is often necessary to generate a new column combining the various features. Through the joint column, a better, more comprehensive, and more accurate analysis can take place. The three essential preprocessing steps — extraction, lowercase conversion, and StopWords removal — are covered in this study.
+Preprocessing methods are an essential step for text mining techniques and applications. 
+The data and its columns need to be analyzed and inspected since it is often necessary to generate a new column combining the various features. Through the joint column, a better, more comprehensive, and more accurate analysis can take place. The three essential preprocessing steps — tokenization, lowercase, stop word removal, and TF/IDF algorithms — are covered in this study (Figure 1).
 
 \subsection{Tokenization}
 
@@ -26,19 +27,19 @@ Will be split into:
 
 \subsection{Lowercase Conversion}
 
-Text typically consists of capital letters and abbreviations. Although this stage of text preprocessing is frequently skipped, it is one of the easiest and most successful ones. NLP is case-sensitive, meaning, it interprets 'Hello' differently than 'hello' and leads to a different outcome. In the later phases of word embedding would it create two distinct vectors, for the same words with one in capital and one in lowercase. For this reason, the best practice in text pre-processing has been to make all words lowercase \citep{tabassum_survey_2020}.
+Text typically consists of capital letters and abbreviations. Although this stage of text preprocessing is frequently skipped, is it one of the easiest and most successful ones. NLP is case-sensitive, meaning, it interprets 'Hello' differently than 'hello' and leads to a different outcome. In the later phases of word embedding would it create two distinct vectors, for the same words with one in capital and one in lowercase. For this reason, the best practice in text pre-processing has been to make all words lowercase \citep{tabassum_survey_2020}.
 
 \subsection{StopWords Removal}
 
-Simple words like "the", "are", "is", "and" and so forth have no significance except in certain particular use cases. For instance, these extra words are not given any weightage in the text classification use case. The keywords that define the topics are the only ones that are extracted. Therefore, to reach the best result of algorithms these StopWords have to be found and removed from their document. It is also important to remember that in some scenarios, such as conversational models, the inclusion of specific negation words, like “No”, “cannot”, “wont” and “not”, is crucial \citep{tabassum_survey_2020}. Libraries like nltk and sklearn already offer predefined lists of StopWords which can be easily downloaded and implemented into the code.
+Simple words like "the", "are", "is", "and" and so forth have no significance except in certain particular use cases. For instance, these extra words are not given any weightage in the text classification use case. The keywords that define the topics are the only ones that are extracted. Therefore, to reach the best result with the algorithms these StopWords have to be found and removed from their document. It is also important to remember that in some scenarios, such as conversational models, the inclusion of specific negation words, like “No”, “cannot”, “wont” and “not”, is crucial \citep{tabassum_survey_2020}. Libraries like NLTK and sklearn already offer predefined lists of StopWords which can be easily downloaded and implemented into the code.
 
 \section{Feature Extraction}
 
-The encoding of features in vector forms for machine comprehension is often referred to as feature extraction. After being extracted by these methods, every feature is finally represented as a vector, which is then sent to the classifier models. The most common techniques, such as Bag-of-Words (BoW), and TF-IDF will be discussed next.
+The encoding of features into vector forms for machine comprehension is often referred to as feature extraction. After being extracted by these methods, every feature is finally represented as a vector, which is then sent to the classifier models. The most common techniques, such as Bag-of-Words (BoW), and TF-IDF will be discussed next.
 
 \subsection{Bag-of-Words (BoW)}
 
-A bag of words in terms of natural language processing is a collection of words based on the number of occurrences in a given text or document. It only counts the frequency of a word, regardless of its position in the text. Thus, the BoW interprets that documents or texts containing similar words share the same context. One flaw of the model is that it prioritizes words that appear more frequently, making them more significant. On the other hand, some words may occur more frequently than others but lack sufficient information to help in clustering or classification issues. Additionally, longer documents provide a greater rate than shorter ones, which reduces the accuracy of the BoW model \citep{tabassum_survey_2020}.
+A Bag-of-Words in terms of natural language processing is a collection of words based on the number of occurrences in a given text or document. It only counts the frequency of a word, regardless of its position in the text. Thus, the BoW interprets that documents or texts containing similar words share the same context. One flaw of the model is that it prioritizes words that appear more frequently, making them more significant. On the other hand, some words may occur more frequently than others but lack sufficient information to help in clustering or classification issues. Additionally, longer documents provide a greater rate than shorter ones, which reduces the accuracy of the BoW model \citep{tabassum_survey_2020}.
 
 \begin{verbatim}
 Document 0: "The quick brown fox"
@@ -59,7 +60,7 @@ BoW:
 
 \subsection{Term Frequency-Inverse Document Frequency (TF-IDF)}
 
-The term frequency-inverse document frequency (tf-idf) is a numerical measure that indicates the importance of a word to a document in a collection. Its primary application is as a standard weighting factor in information retrieval and text mining. The value of tf-idf rises in direct proportion to the frequency of a word in the corpus, but this is offset by the term's frequency in the document. This can help in managing the fact that certain words are typically used more commonly than others. Stop-word filtering using Tf-IDF is effective in a variety of subject areas, such as text classification and summarization. The model is the product of the two aforementioned statistics, termed frequency and inverse document frequency. The number of occurrences with which each term appears in each document is counted and added together to further differentiate them \citep{vijayarani_preprocessing_2015}. By calculating the log of the ratio of all documents to all instances of a word in a given document, it essentially scales down the less important words \citep{tabassum_survey_2020}.
+The \ac{tfidf} is a numerical measure that indicates the importance of a word to a document in a collection. Its primary application is as a standard weighting factor in information retrieval and text mining. The value of TF-IDF rises in direct proportion to the frequency of a word in the corpus, but this is offset by the term's frequency in the document. This can help in managing the fact that certain words are typically used more commonly than others. StopWords filtering using TF-IDF is effective in a variety of subject areas, such as text classification and summarization. The model is the product of the two aforementioned statistics, termed frequency and inverse document frequency. The number of occurrences with which each term appears in each document is counted and added together to further differentiate them \citep{vijayarani_preprocessing_2015}. By calculating the log of the ratio of all documents to all instances of a word in a given document, it essentially scales down the less important words \citep{tabassum_survey_2020}.
 
 \begin{verbatim}
 Document 0: "The quick brown fox"
@@ -89,7 +90,7 @@ from sklearn.model_selection import train_test_split
 X_train,X_test,y_train,y_test = train_test_split(X,y, test_size=0.2, random_state=42)
 \end{lstlisting}
 
-The variable X (features) is assigned to the previously created TF-IDF vector and y (target) to the labels that should be predicted. 
+The variable X (features) is assigned to the previously created vector and y (target) to the labels that should be predicted. 
 
 The random\_state parameter controls the randomness of the data splitting process. When a specific random\_state value is provided, the data splitting process will produce the same result every time it is executed, ensuring reproducibility. If random\_state is not specified, the data splitting will be different each time the function is called.
 
@@ -101,17 +102,16 @@ Machine Learning is split into three main categories, which are supervised, unsu
 
 There are several different classification models and each of them fits a specific use case best. 
 The models need to be evaluated and compared to one and another, to find the optimal algorithm. This study analyses seven different models from sklearn (Logistic Regression, Decision Tree, Naive Bayes, Support Vector Machine, Random Forest, XGBoost, KNeighborsClassifier) and evaluates them based on the run time and accuracy. 
-% Two functions, one to find the best random state on the train-test-split data, and the other to get the ideal hyperparameters based on a grid search, loop through the previous defined models and automate the process, when finalised it returns the best score and run time duration.
 
 \subsubsection{K-nearest neighbour - KNN}
-The K-nearest neighbour algorithm is one of the finest examples of instance-based learning. Additionally, it is easy to understand and a simple method for classification problems. Despite its simplicity, it has the capability to yield results that are highly competitive. Not only is it well suitable for classifications but it also fits the requirements for regression predictions \citep{sen_supervised_2020}.
+The \ac{knn} algorithm is one of the finest examples of instance-based learning. Additionally, it is easy to understand and a simple method for classification problems. Despite its simplicity, it has the capability to yield results that are highly competitive. Not only is it well suitable for classifications but it also fits the requirements for regression predictions \citep{sen_supervised_2020}.
 
-The algorithm stores all the given data points and predicts the target based on giving attention to the similarity measurements of the surrounding neighbours in likelihood. The number of neighbours that will be taken in consideration is defined by the "k" variable. Assuming k equals 3, a circular region with the new data point at its centroid is created to encompass only the three closest neighbouring data points on the plane. The determination of the label for the new data point is then based on the distances between the data point and each of its neighbours \citep{sen_supervised_2020}.
+The algorithm stores all the given data points and predicts the target based on giving attention to the similarity measurements of the surrounding neighbours in likelihood. The number of neighbours that will be taken in consideration is defined by the "k" variable. Assuming k equals 3, a circular region with the new data point as its centroid is created to encompass only the three closest neighbouring data points on the plane. The determination of the label for the new data point is then based on the distances between the data point and each of its neighbours \citep{sen_supervised_2020}.
 
 Some of the advantages are that it handles noisy and large training data well, besides the simplicity of the implementation. A significant limitation of this algorithm arises from the necessity to recalculate the distances from K neighbours for every new instance, resulting in substantial computational time consumption. Additionally, accurately determining the value of K is crucial to achieve a lower error rate \citep{sen_supervised_2020}.
 
-\subsubsection{Support vector machine - SVM}
-Another supervised algorithm is the support vector machine. It can handle both, classification, and regression problems, though is it more seen for classification. Furthermore, it can manage numerous instances that involve both continuous and categorical data \citep{sen_supervised_2020}.
+\subsubsection{Support Vector Machine - SVM}
+Another supervised algorithm is the \ac{svm}. It can handle both, classification, and regression problems, though is it more seen for classification. Furthermore, it can manage numerous instances that involve both continuous and categorical data \citep{sen_supervised_2020}.
 
 The algorithm can be defined like following. Items of the dataset with "n" features will be characterised and plotted as points in an n-dimensional space split into classes by a hyperplane with the widest possible margin. The data points are then mapped into the previous defined space to predict their label based on their position relative to the hyperplane \citep{sen_supervised_2020}.
 
@@ -119,7 +119,7 @@ A significant performance boost can be seen, when the variable "n" exceeds the t
 
 \subsubsection{Decision Tree - DT}
 
-Decision trees are a type of supervised learning technique used for regression and classification. Building a model with the ability to forecast the value of a target variable using fundamental decision rules inferred from the data features is the goal. A piecewise constant approximation can be thought of as a tree. For instance, decision trees estimate a sine curve depending on inputs by combining a set of if-then-else decision rules. As the tree goes deeper, the model fits the data better and the decision criteria get increasingly complex \citep{sklearn_dtt}.
+\acfp{dt} are a type of supervised learning technique used for regression and classification. Building a model with the ability to forecast the value of a target variable using fundamental decision rules inferred from the data features is the goal. A piecewise constant approximation can be thought of as a tree. For instance, decision trees estimate a sine curve depending on inputs by combining a set of if-then-else decision rules. As the tree goes deeper, the model fits the data better and the decision criteria get increasingly complex \citep{sklearn_dtt}.
 
 The ease of use and interpretability of decision trees is one of its main benefits. It is possible to visualise and comprehend the tree structure, so even non-experts may use it. Furthermore, because decision trees can handle both numerical and categorical data without requiring a lot of preprocessing, they also require less preparation of the data. They also have the benefit of handling multi-output issues and offering a white box approach, in which a decision's logic may be simply described using boolean logic \citep{sklearn_dtt}.
 
@@ -127,7 +127,7 @@ Nevertheless, decision trees can overfit, especially if they get too complicated
 
 
 \subsection{Deep Learning}
-Deep learning (DL) is a specific category within machine learning (ML) methodologies that utilizes artificial neural networks (ANN). These networks are loosely inspired by the structure of neurons found in the human brain. Informally, the term "deep" originally referred to the presence of numerous layers in the artificial neural network. However, this definition has evolved over time. While just four years ago, having 10 layers was considered sufficient to qualify a network as deep, today it is more commonplace to characterize a network as deep when it comprises hundreds of layers \citep{gulli_deep_2017}. 
+\ac{dl} is a specific category within \ac{ml} methodologies that utilizes Artificial Neural Networks (ANN). These networks are loosely inspired by the structure of neurons found in the human brain. Informally, the term "deep" originally referred to the presence of numerous layers in the artificial neural network. However, this definition has evolved over time. While just four years ago, having 10 layers was considered sufficient to qualify a network as deep, today it is more commonplace to characterize a network as deep when it comprises hundreds of layers \citep{gulli_deep_2017}. 
 
-Keras serves as a user-friendly high-level deep learning library in Python, providing a convenient interface for building neural networks. The Sequential model in Keras is a linear stack of layers, allowing the straightforward construction of neural networks by sequentially adding layers. Each layer, often employing activation functions like Rectified Linear Unit (ReLU), introduces non-linearity to the model, enabling it to capture complex patterns and relationships within the data \citep{gulli_deep_2017}. 
+Keras serves as a user-friendly high-level deep learning library in Python, providing a convenient interface for building neural networks. The sequential model in Keras is a linear stack of layers, allowing the straightforward construction of neural networks by sequentially adding layers. Each layer, often employing activation functions like Rectified Linear Unit (ReLU), introduces non-linearity to the model, enabling it to capture complex patterns and relationships within the data \citep{gulli_deep_2017}. 
 
