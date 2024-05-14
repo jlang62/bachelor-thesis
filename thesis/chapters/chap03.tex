@@ -35,11 +35,11 @@ Simple words like "the", "are", "is", "and" and so forth have no significance ex
 
 \section{Feature Extraction}
 
-The encoding of features into vector forms for machine comprehension is often referred to as feature extraction. After being extracted by these methods, every feature is finally represented as a vector, which is then sent to the classifier models. The most common techniques, such as \ac{bow}, and \ac{tfidf} will be discussed next.
+Feature extraction involves converting features into vector representations for machine comprehension tasks. Following extraction, each feature is transformed into a vector format before being fed into classifier models. Common techniques like \ac{bow} and \ac{tfidf} are frequently employed for this purpose and will be explored further.
 
 \subsection{Bag-of-Words (BoW)}
 
-A Bag-of-Words in terms of natural language processing is a collection of words based on the number of occurrences in a given text or document. It only counts the frequency of a word, regardless of its position in the text \citep{tabassum_survey_2020}. Thus, the BoW interprets that documents or texts containing similar words share the same context. One flaw of the model is that it prioritizes words that appear more frequently, making them more significant. On the other hand, some words may occur more frequently than others but lack sufficient information to help in clustering or classification issues. Additionally, longer documents provide a greater rate than shorter ones, which reduces the accuracy of the BoW model \citep{tabassum_survey_2020}.
+A Bag-of-Words in terms of natural language processing is a collection of words based on the number of occurrences in a given text or document. It only counts the frequency of a word, regardless of its position in the text \citep{tabassum_survey_2020}. Thus, the BoW interprets that documents or texts containing similar words share the same context. One flaw of the model is that it prioritizes words that appear more frequently, making them more significant. On the other hand, some words may occur more frequently than others but lack sufficient information to help in clustering or classification issues. Additionally, longer documents provide a greater rate than shorter ones, which reduces the accuracy of the BoW model \citep{tabassum_survey_2020}. Example text \citep{openai_gpt3}:
 
 \begin{verbatim}
 Document 0: "The quick brown fox"
@@ -49,7 +49,6 @@ Document 2: "The dog chased the fox"
 Vocabulary: 
 {'the': 8, 'quick': 7, 'brown': 0, 'fox': 3, 'jumped': 4,
 'over': 6, 'lazy': 5, 'dog': 2, 'chased': 1}
-
 BoW:
     brown  chased  dog  fox  jumped  lazy  over  quick  the
 0      1      0     0    1      0     0     0      1     1
@@ -60,7 +59,7 @@ BoW:
 
 \subsection{Term Frequency-Inverse Document Frequency (TF-IDF)}
 
-The \ac{tfidf} is a numerical measure that indicates the importance of a word to a document in a collection. Its primary application is as a standard weighting factor in information retrieval and text mining. The value of TF-IDF rises in direct proportion to the frequency of a word in the corpus, but this is offset by the term's frequency in the document \citep{vijayarani_preprocessing_2015}. This can help in managing the fact that certain words are typically used more commonly than others. StopWords filtering using TF-IDF is effective in a variety of subject areas, such as text classification and summarization. The model is the product of the two aforementioned statistics, termed frequency and inverse document frequency. The number of occurrences with which each term appears in each document is counted and added together to further differentiate them \citep{vijayarani_preprocessing_2015}. By calculating the log of the ratio of all documents to all instances of a word in a given document, it essentially scales down the less important words \citep{tabassum_survey_2020}.
+\ac{tfidf}, or Term Frequency-Inverse Document Frequency, serves as a numerical metric to gauge the significance of a word within a document collection. Widely applied in information retrieval and text mining, TF-IDF assigns weight to words based on their frequency in a document relative to their occurrence across the corpus \citep{vijayarani_preprocessing_2015}. This weighting mechanism effectively mitigates the influence of commonly used words. Employing TF-IDF for StopWords filtering proves beneficial across various domains, including text classification and summarization. The model combines two key metrics: term frequency and inverse document frequency, wherein the former tallies the occurrences of each term in documents, while the latter adjusts for the term's prevalence across the corpus \citep{vijayarani_preprocessing_2015}. By taking the logarithm of the ratio of all documents to the instances of a term within a document, TF-IDF effectively diminishes the importance of less significant words \citep{tabassum_survey_2020}. Example text \citep{openai_gpt3}: 
 
 \begin{verbatim}
 Document 0: "The quick brown fox"
@@ -84,7 +83,7 @@ Train-Test-Split is a common method provided by sklearn, used to divide a given 
 
 Every dataset was split only once, and all models were trained and fine-tuned using the same split, to maintain the comparison as fair and repeatable as possible. Listing~\ref{lst:train-test-split} displays the implementation, which divides the data into a split of 80:20, where the training set contains 80\%, and the testing set 20\%. 
 
-\begin{lstlisting}[language=Python, caption=Train-Test-Split in Python, label=lst:train-test-split]
+\begin{lstlisting}[language=Python, caption=Train-Test-Split in Python \citep{sklearn_ttt}, label=lst:train-test-split]
 from sklearn.model_selection import train_test_split
 
 X_train,X_test,y_train,y_test = train_test_split(X,y, test_size=0.2, random_state=42)
@@ -101,7 +100,7 @@ Machine Learning is split into three main categories, which are supervised, unsu
 \subsection{Classification Models}
 
 There are several different classification models and each of them fits a specific use case best. 
-The models need to be evaluated and compared to one and another, to find the optimal algorithm. This study analyses seven different models from sklearn (Logistic Regression, Decision Tree, Naive Bayes, Support Vector Machine, Random Forest, XGBoost, KNeighborsClassifier) and evaluates them based on the run time and accuracy. 
+The models need to be evaluated and compared to one and another, to find the optimal algorithm. This study analyses seven different models from sklearn (Naive Bayes, Random Forest, Support Vector Machine, KNeighborsClassifier, Logistic Regression, Decision Tree, XGBoost) and evaluates them based on the run time and accuracy. 
 
 \subsubsection{K-nearest neighbour - KNN}
 The \ac{knn} algorithm is one of the finest examples of instance-based learning \citep{sen_supervised_2020}. Additionally, it is easy to understand and a simple method for classification problems. Despite its simplicity, it has the capability to yield results that are highly competitive. Not only is it well suitable for classifications but it also fits the requirements for regression predictions \citep{sen_supervised_2020}.
@@ -119,7 +118,7 @@ A significant performance boost can be seen, when the variable "n" exceeds the t
 
 \subsubsection{Decision Tree - DT}
 
-One kind of supervised learning method for regression and classification is the use of \acfp{dt} \citep{sklearn_dtt}. The objective is to create a model that can forecast a target variable's value using basic decision rules deduced from the data attributes. A piecewise constant approximation can be thought of as a tree. For instance, decision trees estimate a sine curve depending on inputs by combining a set of if-then-else decision rules. As the tree goes deeper, the model fits the data better and the decision criteria get increasingly complex \citep{sklearn_dtt}.
+One kind of supervised learning method for regression and classification is the use of \acfp{dt} \citep{sklearn_dtt}. The objective is to create a model that can forecast a target variable's value using basic decision rules deduced from the data attributes. A piecewise constant approximation can be thought of as a tree \citep{sklearn_dtt}. For instance, decision trees estimate a sine curve depending on inputs by combining a set of if-then-else decision rules. As the tree goes deeper, the model fits the data better and the decision criteria get increasingly complex \citep{sklearn_dtt}.
 
 The ease of use and interpretability of decision trees is one of its main benefits. It is possible to visualise and comprehend the tree structure, so even non-experts may use it \citep{sklearn_dtt}. Furthermore, because decision trees can handle both numerical and categorical data without requiring a lot of preprocessing, they also require less preparation of the data. They also have the benefit of handling multi-output issues and offering a white box approach, in which a decision's logic may be simply described using boolean logic \citep{sklearn_dtt}.
 
