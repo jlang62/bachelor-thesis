@@ -27,19 +27,19 @@ Will be split into:
 
 \subsection{Lowercase Conversion}
 
-Text typically consists of capital letters and abbreviations. Although this stage of text preprocessing is frequently skipped, is it one of the easiest and most successful ones \citep{tabassum_survey_2020}. NLP is case-sensitive, meaning, it interprets 'Hello' differently than 'hello' and leads to a different outcome. In the later phases of word embedding would it create two distinct vectors, for the same words with one in capital and one in lowercase. For this reason, the best practice in text pre-processing has been to make all words lowercase \citep{tabassum_survey_2020}.
+Text usually uses abbreviations and uppercase characters. Despite being often overlooked, this text preprocessing step is one of the simplest and most effective \citep{tabassum_survey_2020}. NLP is case-sensitive, meaning, it interprets 'Hello' differently than 'hello' and leads to a different outcome. In the later phases of word embedding would it create two distinct vectors, for the same words with one in capital and one in lowercase. For this reason, the best practice in text pre-processing has been to make all words lowercase \citep{tabassum_survey_2020}.
 
 \subsection{StopWords Removal}
 
-Simple words like "the", "are", "is", "and" and so forth have no significance except in certain particular use cases. For instance, these extra words are not given any weightage in the text classification use case \citep{tabassum_survey_2020}. The keywords that define the topics are the only ones that are extracted. Therefore, to reach the best result with the algorithms these StopWords have to be found and removed from their document. It is also important to remember that in some scenarios, such as conversational models, the inclusion of specific negation words, like “No”, “cannot”, “wont” and “not”, is crucial \citep{tabassum_survey_2020}. Libraries like NLTK and sklearn already offer predefined lists of StopWords which can be easily downloaded and implemented into the code.
+Simple words like "the", "are", "is", "and" and so forth have no significance except in certain particular use cases. For instance, these extra words are not given any weightage in the text classification use case \citep{tabassum_survey_2020}. The only keywords that are extracted are those that define the themes. Thus, these StopWords need to be located and eliminated from their content in order for the algorithms to produce the optimum results. It is important to bear in mind that certain circumstances, including conversational models, require the use of certain negation terms, such as "No," "cannot," "wont," and "not" \citep{tabassum_survey_2020}. Libraries like NLTK and sklearn already offer predefined lists of StopWords which can be easily downloaded and implemented into the code.
 
 \section{Feature Extraction}
 
-Feature extraction involves converting features into vector representations for machine comprehension tasks. Following extraction, each feature is transformed into a vector format before being fed into classifier models. Common techniques like \ac{bow} and \ac{tfidf} are frequently employed for this purpose and will be explored further.
+Feature extraction involves converting features into vector representations for machine comprehension tasks. Following extraction, each feature is transformed into a vector format before being fed into classifier models. Common approaches, such as \ac{bow} and \ac{tfidf}, are widely used for this purpose and will be investigated further.
 
 \subsection{Bag-of-Words (BoW)}
 
-A Bag-of-Words in terms of natural language processing is a collection of words based on the number of occurrences in a given text or document. It only counts the frequency of a word, regardless of its position in the text \citep{tabassum_survey_2020}. Thus, the BoW interprets that documents or texts containing similar words share the same context. One flaw of the model is that it prioritizes words that appear more frequently, making them more significant. On the other hand, some words may occur more frequently than others but lack sufficient information to help in clustering or classification issues. Additionally, longer documents provide a greater rate than shorter ones, which reduces the accuracy of the BoW model \citep{tabassum_survey_2020}. Example text \citep{openai_gpt3}:
+In natural language processing, a Bag-of-Words is a list of words ranked by how frequently they appear in a certain text or document. It only counts the frequency of a word, regardless of its position in the text \citep{tabassum_survey_2020}. Thus, the BoW interprets that documents or texts containing similar words share the same context. One flaw of the model is that it prioritizes words that appear more frequently, making them more significant. On the other hand, some words may occur more frequently than others but lack sufficient information to help in clustering or classification issues. Additionally, longer documents provide a greater rate than shorter ones, which reduces the accuracy of the BoW model \citep{tabassum_survey_2020}. Example text \citep{openai_gpt3}:
 
 \begin{verbatim}
 Document 0: "The quick brown fox"
@@ -59,7 +59,7 @@ BoW:
 
 \subsection{Term Frequency-Inverse Document Frequency (TF-IDF)}
 
-\ac{tfidf}, or Term Frequency-Inverse Document Frequency, serves as a numerical metric to gauge the significance of a word within a document collection. Widely applied in information retrieval and text mining, TF-IDF assigns weight to words based on their frequency in a document relative to their occurrence across the corpus \citep{vijayarani_preprocessing_2015}. This weighting mechanism effectively mitigates the influence of commonly used words. Employing TF-IDF for StopWords filtering proves beneficial across various domains, including text classification and summarization. The model combines two key metrics: term frequency and inverse document frequency, wherein the former tallies the occurrences of each term in documents, while the latter adjusts for the term's prevalence across the corpus \citep{vijayarani_preprocessing_2015}. By taking the logarithm of the ratio of all documents to the instances of a term within a document, TF-IDF effectively diminishes the importance of less significant words \citep{tabassum_survey_2020}. Example text \citep{openai_gpt3}: 
+\ac{tfidf} is a popular technique in text mining and information retrieval that weights words according to how frequently they appear in a document compared to how frequently they occur throughout the corpus \citep{vijayarani_preprocessing_2015}. This weighting mechanism effectively mitigates the influence of commonly used words. Employing TF-IDF for StopWords filtering proves beneficial across various domains, including text classification and summarization. The model combines two key metrics: term frequency and inverse document frequency, wherein the former tallies the occurrences of each term in documents, while the latter adjusts for the term's prevalence across the corpus \citep{vijayarani_preprocessing_2015}. By taking the logarithm of the ratio of all documents to the instances of a term within a document, TF-IDF effectively diminishes the importance of less significant words \citep{tabassum_survey_2020}. Example text \citep{openai_gpt3}: 
 
 \begin{verbatim}
 Document 0: "The quick brown fox"
@@ -79,9 +79,9 @@ TF-IDF:
 
 \section{Train-Test-Split}
 
-Train-Test-Split is a common method provided by sklearn, used to divide a given dataset into smaller subsets. The datasets need to be divided into training and testing sets in order to fairly assess the models. By dividing the data, the model's performance on unknown data may be evaluated, revealing whether the model overfits or performs well in terms of generalization. This stage is crucial because the model's ultimate objective is to accurately predict new data.
+Train-Test-Split is a common method provided by sklearn, used to divide a given dataset into smaller subsets. To evaluate the models in a fair manner, the datasets must be split into training and testing sets. By dividing the data, the model's performance on unknown data may be evaluated, revealing whether the model overfits or performs well in terms of generalization. This stage is crucial because the model's ultimate objective is to accurately predict new data.
 
-Every dataset was split only once, and all models were trained and fine-tuned using the same split, to maintain the comparison as fair and repeatable as possible. Listing~\ref{lst:train-test-split} displays the implementation, which divides the data into a split of 80:20, where the training set contains 80\%, and the testing set 20\%. 
+To keep the comparison as equitable and reproducible as possible, each dataset was split just once, and the same split was used for training and fine-tuning all models. Listing~\ref{lst:train-test-split} displays the implementation, which divides the data into a split of 80:20, where the training set contains 80\%, and the testing set 20\%. 
 
 \begin{lstlisting}[language=Python, caption=Train-Test-Split in Python \citep{sklearn_ttt}, label=lst:train-test-split]
 from sklearn.model_selection import train_test_split
@@ -91,7 +91,7 @@ X_train,X_test,y_train,y_test = train_test_split(X,y, test_size=0.2, random_stat
 
 The variable X (features) is assigned to the previously created vector and y (target) to the labels that should be predicted. 
 
-The random\_state parameter controls the randomness of the data splitting process. When a specific random\_state value is provided, the data splitting process will produce the same result every time it is executed, ensuring reproducibility. If random\_state is not specified, the data splitting will be different each time the function is called.
+The random\_state parameter controls the randomness of the data splitting process. Reproducibility is ensured by the data splitting procedure, which yields the same result each time it is run when a specified random\_state value is supplied. If random\_state is not specified, the data splitting will be different each time the function is called.
 
 \section{Model Selection}
 
@@ -118,7 +118,7 @@ A significant performance boost can be seen, when the variable "n" exceeds the t
 
 \subsubsection{Decision Tree - DT}
 
-One kind of supervised learning method for regression and classification is the use of \acfp{dt} \citep{sklearn_dtt}. The objective is to create a model that can forecast a target variable's value using basic decision rules deduced from the data attributes. Consider a piecewise constant approximation as a tree \citep{sklearn_dtt}. For instance, decision trees estimate a sine curve depending on inputs by combining a set of if-then-else decision rules. As the tree goes deeper, the model fits the data better and the decision criteria get increasingly complex \citep{sklearn_dtt}.
+One kind of supervised learning method for regression and classification is the use of \acfp{dt} \citep{sklearn_dtt}. The goal is to build a model that can use basic decision rules inferred from the features of the data to forecast the value of a target variable. Consider a piecewise constant approximation as a tree \citep{sklearn_dtt}. For instance, decision trees estimate a sine curve depending on inputs by combining a set of if-then-else decision rules. As the tree goes deeper, the model fits the data better and the decision criteria get increasingly complex \citep{sklearn_dtt}.
 
 The ease of use and interpretability of decision trees is one of its main benefits. It is possible to visualise and comprehend the tree structure, so even non-experts may use it \citep{sklearn_dtt}. Furthermore, because decision trees can handle both numerical and categorical data without requiring a lot of preprocessing, they also require less preparation of the data. They also have the benefit of handling multi-output issues and offering a white box approach, in which a decision's logic may be simply described using boolean logic \citep{sklearn_dtt}.
 
