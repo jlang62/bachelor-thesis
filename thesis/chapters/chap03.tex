@@ -15,7 +15,7 @@ The data and its columns need to be analyzed and inspected since it is often nec
 
 \subsection{Tokenization}
 
-Tokenization is the process of splitting sentences into individual words, characters, and punctuation, which are referred to as tokens \citep{tabassum_survey_2020}. The split function uses white spaces or punctuations as dividing criteria. These generated tokens are often stored in a list afterward. In later processing phases, this step aids in removing unnecessary terms \citep{tabassum_survey_2020}. 
+Breaking phrases up into individual words, characters, and punctuation — so called tokens — is a process known as tokenization \citep{tabassum_survey_2020}. The split function uses white spaces or punctuations as dividing criteria. These generated tokens are often stored in a list afterward. In later processing phases, this step aids in removing unnecessary terms \citep{tabassum_survey_2020}. 
 
 For example:
 
@@ -95,7 +95,7 @@ The random\_state parameter controls the randomness of the data splitting proces
 
 \section{Model Selection}
 
-Machine Learning is split into three main categories, which are supervised, unsupervised and reinforcement learning. This thesis only required supervised learning, which is about the prediction of values with regression models, as well as classifying data with predefined labels. On the other hand, there is unsupervised learning which contains the analysis of patterns and can form clusters out of unlabelled data.
+Supervised, unsupervised, and reinforcement learning are the three primary subcategories of machine learning. This thesis only required supervised learning, which is about the prediction of values with regression models, as well as classifying data with predefined labels. On the other hand, there is unsupervised learning which contains the analysis of patterns and can form clusters out of unlabelled data.
 
 \subsection{Classification Models}
 
@@ -103,14 +103,14 @@ There are several different classification models and each of them fits a specif
 The models need to be evaluated and compared to one and another, to find the optimal algorithm. This study analyses seven different models from sklearn (Naive Bayes, Random Forest, Support Vector Machine, KNeighborsClassifier, Logistic Regression, Decision Tree, XGBoost) and evaluates them based on the run time and accuracy. 
 
 \subsubsection{K-nearest neighbour - KNN}
-The \ac{knn} algorithm is one of the finest examples of instance-based learning \citep{sen_supervised_2020}. Additionally, it is easy to understand and a simple method for classification problems. Despite its simplicity, it has the capability to yield results that are highly competitive. Not only is it well suitable for classifications but it also fits the requirements for regression predictions \citep{sen_supervised_2020}.
+One of the best instances of instance-based learning is the \ac{knn} algorithm \citep{sen_supervised_2020}. Additionally, it is easy to understand and a simple method for classification problems. Despite its simplicity, it has the capability to yield results that are highly competitive. Not only is it well suitable for classifications but it also fits the requirements for regression predictions \citep{sen_supervised_2020}.
 
 The algorithm stores all the given data points and predicts the target based on giving attention to the similarity measurements of the surrounding neighbours in likelihood \citep{sen_supervised_2020}. The number of neighbours that will be taken in consideration is defined by the "k" variable. Assuming k equals 3, a circular region with the new data point as its centroid is created to encompass only the three closest neighbouring data points on the plane. The determination of the label for the new data point is then based on the distances between the data point and each of its neighbours \citep{sen_supervised_2020}.
 
 Some of the advantages are that it handles noisy and large training data well, besides the simplicity of the implementation \citep{sen_supervised_2020}. A significant limitation of this algorithm arises from the necessity to recalculate the distances from K neighbours for every new instance, resulting in substantial computational time consumption. Additionally, accurately determining the value of K is crucial to achieve a lower error rate \citep{sen_supervised_2020}.
 
 \subsubsection{Support Vector Machine - SVM}
-Another supervised algorithm is the \ac{svm}. It can handle both, classification, and regression problems, though is it more seen for classification. Furthermore, it can manage numerous instances that involve both continuous and categorical data \citep{sen_supervised_2020}.
+Another supervised algorithm is the \ac{svm}. It can handle both, regression, and classification problems, though is it more seen for classification. Furthermore, it can manage numerous instances that involve both continuous and categorical data \citep{sen_supervised_2020}.
 
 The algorithm can be defined like following. Items of the dataset with "n" features will be characterised and plotted as points in an n-dimensional space split into classes by a hyperplane with the widest possible margin. The data points are then mapped into the previous defined space to predict their label based on their position relative to the hyperplane \citep{sen_supervised_2020}.
 
@@ -118,7 +118,7 @@ A significant performance boost can be seen, when the variable "n" exceeds the t
 
 \subsubsection{Decision Tree - DT}
 
-One kind of supervised learning method for regression and classification is the use of \acfp{dt} \citep{sklearn_dtt}. The objective is to create a model that can forecast a target variable's value using basic decision rules deduced from the data attributes. A piecewise constant approximation can be thought of as a tree \citep{sklearn_dtt}. For instance, decision trees estimate a sine curve depending on inputs by combining a set of if-then-else decision rules. As the tree goes deeper, the model fits the data better and the decision criteria get increasingly complex \citep{sklearn_dtt}.
+One kind of supervised learning method for regression and classification is the use of \acfp{dt} \citep{sklearn_dtt}. The objective is to create a model that can forecast a target variable's value using basic decision rules deduced from the data attributes. Consider a piecewise constant approximation as a tree \citep{sklearn_dtt}. For instance, decision trees estimate a sine curve depending on inputs by combining a set of if-then-else decision rules. As the tree goes deeper, the model fits the data better and the decision criteria get increasingly complex \citep{sklearn_dtt}.
 
 The ease of use and interpretability of decision trees is one of its main benefits. It is possible to visualise and comprehend the tree structure, so even non-experts may use it \citep{sklearn_dtt}. Furthermore, because decision trees can handle both numerical and categorical data without requiring a lot of preprocessing, they also require less preparation of the data. They also have the benefit of handling multi-output issues and offering a white box approach, in which a decision's logic may be simply described using boolean logic \citep{sklearn_dtt}.
 
@@ -126,7 +126,7 @@ Nevertheless, decision trees can overfit, especially if they get too complicated
 
 
 \subsection{Deep Learning}
-\ac{dl} is a specific category within \ac{ml} methodologies that utilizes Artificial Neural Networks (ANN). These networks are loosely inspired by the structure of neurons found in the human brain \citep{gulli_deep_2017}. Informally, the term "deep" originally referred to the presence of numerous layers in the artificial neural network. However, this definition has evolved over time. While just four years ago, having 10 layers was considered sufficient to qualify a network as deep, today it is more commonplace to characterize a network as deep when it comprises hundreds of layers \citep{gulli_deep_2017}. 
+\ac{dl} is a specific category within \ac{ml} methodologies that utilizes Artificial Neural Networks (ANN). The structure of neurons in the human brain serves as a loose inspiration for these networks \citep{gulli_deep_2017}. Informally, the term "deep" originally referred to the presence of numerous layers in the artificial neural network. However, this definition has evolved over time. While just four years ago, having 10 layers was considered sufficient to qualify a network as deep, today it is more commonplace to characterize a network as deep when it comprises hundreds of layers \citep{gulli_deep_2017}. 
 
-Keras serves as a user-friendly high-level deep learning library in Python, providing a convenient interface for building neural networks \citep{gulli_deep_2017}. The sequential model in Keras is a linear stack of layers, allowing the straightforward construction of neural networks by sequentially adding layers. Each layer, often employing activation functions like Rectified Linear Unit (ReLU), introduces non-linearity to the model, enabling it to capture complex patterns and relationships within the data \citep{gulli_deep_2017}. 
+Keras serves as a user-friendly high-level deep learning library in Python, providing a convenient interface for building neural networks \citep{gulli_deep_2017}. The sequential model in Keras is a linear stack of layers, allowing the straightforward construction of neural networks by sequentially adding layers. Each layer adds non-linearity to the model, allowing it to capture intricate patterns and correlations within the data, frequently using activation functions like Rectified Linear Unit (ReLU) \citep{gulli_deep_2017}. 
 
