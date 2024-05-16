@@ -79,7 +79,7 @@ TF-IDF:
 
 \section{Train-Test-Split}
 
-Train-Test-Split is a common method provided by sklearn, used to divide a given dataset into smaller subsets. To evaluate the models in a fair manner, the datasets must be split into training and testing sets. By dividing the data, the model's performance on unknown data may be evaluated, revealing whether the model overfits or performs well in terms of generalization. This stage is crucial because the model's ultimate objective is to accurately predict new data.
+Train-Test-Split is a common method provided by sklearn, used to divide a given dataset into smaller subsets. The datasets need to be divided into training and testing sets in order to fairly assess the models. The model's effectiveness on unknown data can be assessed by splitting the data, indicating whether the model overfits or performs well in terms of generalization. This stage is crucial because the model's ultimate objective is to accurately predict new data.
 
 To keep the comparison as equitable and reproducible as possible, each dataset was split just once, and the same split was used for training and fine-tuning all models. Listing~\ref{lst:train-test-split} displays the implementation, which divides the data into a split of 80:20, where the training set contains 80\%, and the testing set 20\%. 
 
